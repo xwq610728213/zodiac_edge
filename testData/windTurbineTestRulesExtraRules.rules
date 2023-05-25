@@ -1,0 +1,19 @@
+#<hasNeighbourCopy>(X, Y) :- <hasNeighbourCopy>(Y, X) .
+<hasNeighbour>(X, Y) :- <hasNeighbour>(Y, X) .
+
+#<hasNeighbourCopy>(X, Y) :- <hasNeighbourCopy>(X, Z) and <hasNeighbourCopy>(Z, Y) and COMP(X, !=, Y) .
+<hasNeighbour>(X, Y) :- <hasNeighbour>(X, Z) and <hasNeighbour>(Z, Y) and COMP(X, !=, Y) .
+
+#<hasNeighbour>(X, Y) :- <p1>(X, Y) .
+
+#<hasNeighbour>(X, Y) :- <hasNeighbourCopy2>(Y, X) .
+
+<hasNeighbourAirTemperatureMeasurementNumber>(X, Z) :- aggregate( <hasNeighbour>(X, Y) and <hasAirTemperatureMesurement>(Y, T)) on X with count(T) as Z .
+
+<hasMedianAirTemperatureMeasurementNearby>(X, Z) :- aggregate( <hasNeighbour>(X, Y) and <hasAirTemperatureMesurement>(Y, T)) on X with Med(T) as Z .
+
+#<SensorAnomalyWindTurbine>(X) :- <hasMedianAirTemperatureMeasurementNearby>(X, M) and <hasNeighbourAirTemperatureMeasurementNumber>(X, N) and Comp(N, >=, 3) and <hasAirTemperatureMesurement>(X, T) and bind(abs(T-M) as D) and Comp(D, >, 5) .
+
+<MoreThan3Neighbours>(X) :- <hasNeighbourAirTemperatureMeasurementNumber>(X, N) and Comp(N, >=, 3) .
+
+<SensorAnomalyWindTurbine>(X) :- <hasMedianAirTemperatureMeasurementNearby>(X, M) and <MoreThan3Neighbours>(X) and <hasAirTemperatureMesurement>(X, T) and bind(abs(T-M) as D) and Comp(D, >, 5) .
