@@ -1,3 +1,6 @@
+(Users can customize w_num in generate_data.py to modify data size).
+Tu run de test, users can simply execute main.py. File path can be changed in main.py to test different dataset.
+
 # ZodiacEdge
 
 ZodiacEdge is a prototype of RDF-Datalog-based engine for Hybird AI (Reasoning + ML/DL) written in Python, this system is typically for Edge Computing. Users are adviced to run ZodiacEdge in PyPy 3.11 environment.
