@@ -1,5 +1,5 @@
-(Users can customize w_num in generate_data.py to modify data size).
-Tu run de test, users can simply execute main.py. File path can be changed in main.py to test different dataset.
+To run de test, users can simply execute main.py. File path can be changed in main.py to test different dataset.
+To generate dataset with different number of wind turbines, users can modify w_num in generate_data.py and execute the script to get new dataset.
 
 # ZodiacEdge
 
