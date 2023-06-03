@@ -18,7 +18,7 @@ r6: SensorAnomalyWindTurbine(X) :- hasMedianAirTemperatureMeasurementNearby(X, M
 
 ## Rule Set 2
 
-This rule set corresponds to a synthetic use case and is used in the Evaluation section of the paper. It corresponds to a semipositive datalog with negation. It contains symmetric, transitive rules as well as rules with atom inequality and negation on an EDB predicate. Figure \ref{fig:RS2_HRDG} presents the HRDG of this rule set.
+This rule set corresponds to a synthetic use case and is used in the Evaluation section of the paper. It corresponds to a semipositive datalog with negation. It contains symmetric, transitive rules as well as rules with atom inequality and negation on an EDB predicate. Figure 11 presents the HRDG of this rule set.
 
 r1:	p11(X, Y) :- p1(X, Y) .  
 r2:	p11(X, Y) :- p11(Y, X) .  
@@ -41,7 +41,7 @@ r18: p31(X, Y) :- p25(X, Y) and p26(Y, Z) .
 
 ## Rule Set 3
 
-Rule Set 3 is an adaptation of Rule Set 2 with only one modification on rule r10. The Datalog program thus accepts negation on IDB predicates and is not a semipositive datalog program anymore. Figure \ref{fig:RS3_HRDG} presents this rule set's HRDG.
+Rule Set 3 is an adaptation of Rule Set 2 with only one modification on rule r10. The Datalog program thus accepts negation on IDB predicates and is not a semipositive datalog program anymore. Figure 12 presents this rule set's HRDG.
 
 r1:	p11(X, Y) :- p1(X, Y) .  
 r2:	p11(X, Y) :- p11(Y, X) .   
