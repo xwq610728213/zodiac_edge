@@ -20,20 +20,20 @@ r6: SensorAnomalyWindTurbine(X) :- hasMedianAirTemperatureMeasurementNearby(X, M
 
 This rule set corresponds to a synthetic use case and is used in the Evaluation section of the paper. It corresponds to a semipositive datalog with negation. It contains symmetric, transitive rules as well as rules with atom inequality and negation on an EDB predicate. Figure \ref{fig:RS2_HRDG} presents the HRDG of this rule set.
 
-r1:	p11(X, Y) :- p1(X, Y) .  		
+r1:	p11(X, Y) :- p1(X, Y) .  
 r2:	p11(X, Y) :- p11(Y, X) .  
 r3:	p11(X, Y) :- p11(X, Z) and p11(Z, Y) and COMP(X,!=, Y) .  
-r4:	p12(X, Y) :- p2(X, Y).  	
-r5:	p12(X, Y) :- p12(X, Z) and p12(Z, Y) and COMP(X,!=, Y) .  	
-r6:	p13(X, Y) :- p3(X, Y) .  	
-r7:	p14(X, Y) :- p13(X, Y) .  		
-r8:	p13(X, Y) :- p14(Y, X) .  	
+r4:	p12(X, Y) :- p2(X, Y) .  
+r5:	p12(X, Y) :- p12(X, Z) and p12(Z, Y) and COMP(X,!=, Y) .  
+r6:	p13(X, Y) :- p3(X, Y) .  
+r7:	p14(X, Y) :- p13(X, Y) .  
+r8:	p13(X, Y) :- p14(Y, X) .  
 r9:	p20(X, Y) :- p11(X, Y) .  
-r10: p20(X, Y) :- p12(X, Y) .  	
-r11: p20(X, Y) :- p13(X, Y) .  	
+r10: p20(X, Y) :- p12(X, Y) .  
+r11: p20(X, Y) :- p13(X, Y) .  
 r12: p21(X, Y) :- p20(X, Y) .  
-r13: p22(X, Y) :- p21(X, Y) .  		
-r14: p20(X, Y) :- p22(X, Y) .  		
+r13: p22(X, Y) :- p21(X, Y) .  
+r14: p20(X, Y) :- p22(X, Y) .  
 r15: p25(X, Z) :- p11(X, Y) and p12(Y, Z) and not p5(Y, Z) .  
 r16: p26(X, Z) :- p12(X, Y) and p13(Z, Y) and not p5(Z, Y) .  
 r17: p30(X, Z) :- p22(X, Y) and p21(Y, Z) .  
@@ -43,22 +43,22 @@ r18: p31(X, Y) :- p25(X, Y) and p26(Y, Z) .
 
 Rule Set 3 is an adaptation of Rule Set 2 with only one modification on rule r10. The Datalog program thus accepts negation on IDB predicates and is not a semipositive datalog program anymore. Figure \ref{fig:RS3_HRDG} presents this rule set's HRDG.
 
-r1:	p11(X, Y) :- p1(X, Y) .	 
-r2:	p11(X, Y) :- p11(Y, X) .  
+r1:	p11(X, Y) :- p1(X, Y) .  
+r2:	p11(X, Y) :- p11(Y, X) .   
 r3:	p11(X, Y) :- p11(X, Z) and p11(Z, Y) and COMP(X,!=, Y) .  
 r4:	p12(X, Y) :- p2(X, Y) .  
-r5:	p12(X, Y) :- p12(X, Z) and p12(Z, Y) and COMP(X,!=, Y) .  	
-r6:	p13(X, Y) :- p3(X, Y) .  	
+r5:	p12(X, Y) :- p12(X, Z) and p12(Z, Y) and COMP(X,!=, Y) .  
+r6:	p13(X, Y) :- p3(X, Y) .  
 r7:	p14(X, Y) :- p13(X, Y) .  
 r8:	p13(X, Y) :- p14(Y, X) .  
-r9:	p20(X, Y) :- p11(X, Y) .  	
+r9:	p20(X, Y) :- p11(X, Y) .  
 r10_new: p20(X, Y) :- p12(X, Y) and not p13(Y, Z) .  
 r11: p20(X, Y) :- p13(X, Y) .  
-r12: p21(X, Y) :- p20(X, Y) .  	
+r12: p21(X, Y) :- p20(X, Y) .  
 r13: p22(X, Y) :- p21(X, Y) .  
-r14: p20(X, Y) :- p22(X, Y) .  
+r14: p20(X, Y) :- p22(X, Y) .   
 r15: p25(X, Z) :- p11(X, Y) and p12(Y, Z) and not p5(Y, Z) .  
-r16: p26(X, Z) :- p12(X, Y) and p13(Z, Y) and not p5(Z, Y) .   
+r16: p26(X, Z) :- p12(X, Y) and p13(Z, Y) and not p5(Z, Y) .  
 r17: p30(X, Z) :- p22(X, Y) and p21(Y, Z) .  
 r18: p31(X, Y) :- p25(X, Y) and p26(Y, Z) .  
 
