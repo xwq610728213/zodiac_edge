@@ -62,6 +62,10 @@ r16: p26(X, Z) :- p12(X, Y) and p13(Z, Y) and not p5(Z, Y) .
 r17: p30(X, Z) :- p22(X, Y) and p21(Y, Z) .  
 r18: p31(X, Y) :- p25(X, Y) and p26(Y, Z) .  
 
+## Figure 11
+
+![avatar](./RS2_HRDG.png)
+
 # ZodiacEdge
 
 ZodiacEdge is a prototype of RDF-Datalog-based engine for Hybird AI (Reasoning + ML/DL) written in Python, this system is typically for Edge Computing. Users are adviced to run ZodiacEdge in PyPy 3.11 environment.
