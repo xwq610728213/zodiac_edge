@@ -64,7 +64,15 @@ r18: p31(X, Y) :- p25(X, Y) and p26(Y, Z) .
 
 ## Figure 11
 
+Rule set 2's HRDG
+
 ![avatar](./RS2_HRDG.png)
+
+## Figure 12
+
+Rule set 3's HRDG
+
+![avatar](./RS3_HRDG.png)
 
 # ZodiacEdge
 
