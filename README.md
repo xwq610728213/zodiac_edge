@@ -9,12 +9,17 @@ To generate dataset with different number of wind turbines, users can modify w_n
 
 This rule set corresponds to an extract of the real-world Wind farm use case. Due to confidentiality reasons, we can not provide the complete rule set.
 
-r1: hasNeighbour(X, Y) :- hasNeighbour(Y, X) .\\
-r2: hasNeighbour(X, Y) :- hasNeighbour(X, Z) $\wedge$ hasNeighbour(Z, Y) $\wedge$ COMP(X, $!$=, Y) .\\
-r3: hasNeighbourAirTemperatureMeasurementNumber(X, Z) :- aggregate( hasNeighbour(X, Y) $\wedge$ hasAirTemperatureMesurement(Y, T)) on X with count(T) as Z .\\
-r4: hasMedianAirTemperatureMeasurementNearby(X, Z) :- aggregate( hasNeighbour(X, Y) $\wedge$ hasAirTemperatureMesurement(Y, T)) on X with Med(T) as Z .\\
-r5: MoreThan3Neighbours(X) :- hasNeighbourAirTemperatureMeasurementNumber(X, N) $\wedge$ Comp(N, >=, 3) .\\
-r6: SensorAnomalyWindTurbine(X) :- hasMedianAirTemperatureMeasurementNearby(X, M) $\wedge$ MoreThan3Neighbours(X) $\wedge$ hasAirTemperatureMesurement(X, T) and bind(abs(T-M) as D) $\wedge$ Comp(D, >, 5) .\\
+r1: hasNeighbour(X, Y) :- hasNeighbour(Y, X) .
+
+r2: hasNeighbour(X, Y) :- hasNeighbour(X, Z) and hasNeighbour(Z, Y) and COMP(X, !=, Y) .
+
+r3: hasNeighbourAirTemperatureMeasurementNumber(X, Z) :- aggregate( hasNeighbour(X, Y) and hasAirTemperatureMesurement(Y, T)) on X with count(T) as Z .
+
+r4: hasMedianAirTemperatureMeasurementNearby(X, Z) :- aggregate( hasNeighbour(X, Y) and hasAirTemperatureMesurement(Y, T)) on X with Med(T) as Z .
+
+r5: MoreThan3Neighbours(X) :- hasNeighbourAirTemperatureMeasurementNumber(X, N) and Comp(N, >=, 3) .
+
+r6: SensorAnomalyWindTurbine(X) :- hasMedianAirTemperatureMeasurementNearby(X, M) $\wedge$ MoreThan3Neighbours(X) and hasAirTemperatureMesurement(X, T) and bind(abs(T-M) as D) and Comp(D, >, 5) .
 
 # ZodiacEdge
 
