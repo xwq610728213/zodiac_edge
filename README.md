@@ -1,4 +1,4 @@
-(Users can import this project into pycharm to run the test. However, because of some network problem, the repo venv, which is necessary for importing a pycharm project, in this project will be ready after the 5 juin 2023)
+(Users can import this project into pycharm to run the test. However, because of some network problem, the repo venv, which is necessary for importing a pycharm project, in this project will be ready after the 5 june 2023)
 
 To run de test, users can simply execute main.py. File path can be changed in main.py to test different dataset.
 To generate dataset with different number of wind turbines, users can modify w_num in generate_data.py and execute the script to get new dataset.
