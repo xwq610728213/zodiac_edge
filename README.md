@@ -1,4 +1,4 @@
-(Users can import this project into pycharm to run the test. However, because of some network problem, the repo venv, which is necessary for importing a pycharm project, in this project will be ready after the 5 june 2023)
+(Users can import this project into **pycharm** to run the test.)
 
 Important: Please use (Pypy 3.11 or later) or (C-python 3.8 or later) as the Python interpreter.
 
