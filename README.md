@@ -2,8 +2,8 @@
 
 Important: Please use (Pypy 3.11 or later) or (C-python 3.8 or later) as the Python interpreter.
 
-To run de test, users can simply execute main.py. File path can be changed in main.py to test different dataset.
-To generate dataset with different number of wind turbines, users can modify w_num in generate_data.py and execute the script to get new dataset.
+To run de test, users can simply execute **main.py**. **File path can be changed** in **main.py** to test different dataset.
+To generate dataset with different number of wind turbines, users can modify **w_num in generate_data.py** and execute the script to get new dataset.
 
 # Paper Appendix:
 
