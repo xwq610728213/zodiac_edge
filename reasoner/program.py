@@ -5,10 +5,10 @@ import time
 
 from classes.atom import Atom
 from classes.hyper_node_dbs import HyperNodeDBs
-from ruleBodyOptimiser import optimise
-from semi_naive import semi_naive_evaluate
+from reasoner.ruleBodyOptimiser import optimise
+from reasoner.semi_naive import semi_naive_evaluate
 from classes.datastore import DataStore, IncrementalDataStore, DataStoreBag, IncrementalDataStoreBag
-import stratify as stratify
+import reasoner.stratify as stratify
 from util.parser import parse_data, parse_rules
 #import psutil
 

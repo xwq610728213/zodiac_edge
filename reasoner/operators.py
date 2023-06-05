@@ -12,7 +12,7 @@ from classes.comp import Compare
 from classes.extended_atom import EAtom
 from classes.rule import Rule
 from classes.term import Term
-from ruleBodyOptimiser import optimise
+from reasoner.ruleBodyOptimiser import optimise
 from util.parser import parse_data, parse_rules
 
 

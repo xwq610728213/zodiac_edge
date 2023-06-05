@@ -5,7 +5,7 @@ from collections import defaultdict
 from classes.atom import Atom
 from classes.datastore import DataStore, IncrementalDataStore
 from classes.term import Term
-from operators import evaluate
+from reasoner.operators import evaluate
 from util.parser import parse_data, parse_rules
 
 
