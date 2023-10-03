@@ -7,6 +7,8 @@ To generate dataset with different number of wind turbines, users can modify **w
 
 # Paper Appendix:
 
+The following 3 rule sets are examples of testing ZodiacEdge. The first example is an extraction from the real case, while the two others are synthetic ones in order to test the system in more complicated cases.
+
 ## Rule Set 1
 
 This rule set corresponds to an extract of the real-world Wind farm use case. Due to confidentiality reasons, we can not provide the complete rule set.
