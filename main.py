@@ -1,7 +1,7 @@
 import gc
 import os
 
-import psutil
+#import psutil
 import time
 
 from classes.term import Term
@@ -14,11 +14,19 @@ def main():
     experiment_result = {}
     f2 = None
 
+    f = open("testData/chamber.nt", "r")
+    rf = open("testData/chamber.rules", "r")
+    rf2 = open("testData/chamber.rules", "r")
 
+
+    """
     f = open("testData/windTurbineTest_complicate_case.nt", "r")
     f2 = open("testData/windTurbineTest_complicate_case_extra_data.nt", "r")
     rf = open("testData/windTurbineTest_complicate_case_rules.rules", "r")
     rf2 = open("testData/windTurbineTest_complicate_case_extra_rules.rules", "r")
+    
+    """
+
     """
 
     f = open("testData/windTurbineTest1000.nt", "r")
@@ -35,6 +43,10 @@ def main():
     experiment_result["Creat_program_time"] = time.time() - start_time
     print("Creat program time: " + str(experiment_result["Creat_program_time"]) + " s")
     print("IDB size: " + str(len(program.idb)))
+    program.edb.print_content()
+
+    program.idb.print_content()
+
     """
     info = p.memory_full_info()
     print("Mem: " + str(info.uss / 1024. / 1024. ) + " Mb")

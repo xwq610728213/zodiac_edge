@@ -4,7 +4,7 @@ import string
 import time
 import warnings
 
-from memory_profiler import profile
+#from memory_profiler import profile
 
 from classes.aggregation import Aggregation
 from classes.bind import Bind, CustomizedBind

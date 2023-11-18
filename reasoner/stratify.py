@@ -129,7 +129,7 @@ def update_dependancy_graph(rules, positive_dependancy_graph, negative_dependanc
     return positive_dependancy_graph, negative_dependancy_graph, old_rules | rules
 
 
-def compute_strongly_connected_components(vertex, graph):
+def compute_strongly_connected_components(vertex, pgraph, ngraph):
     visited = {}
     for node in vertex:
         visited[node] = False
@@ -139,40 +139,43 @@ def compute_strongly_connected_components(vertex, graph):
     for node in vertex:
         colored[node] = False
 
-    def dfs1(u, graph, visited, s):
+    def dfs1(u, pgraph, ngraph, visited, s):
         visited[u] = True
-        for v in graph[u].keys():
-            if graph[u][v] and visited[v] == False:
-                dfs1(v, graph, visited, s)
+        for v in pgraph[u].keys():
+            if (pgraph[u][v] or ngraph[u][v]) and visited[v] == False:
+                dfs1(v, pgraph, ngraph, visited, s)
         s.append(u)
 
-    def dfs2(u, colored, inversed_graph, num):
+    def dfs2(u, colored, inversed_pgraph, inversed_ngraph, num):
         colored[u] = num
-        for v in inversed_graph[u].keys():
-            if inversed_graph[u][v] and colored[v] == False:
-                dfs2(v, colored, inversed_graph, num)
+        for v in inversed_pgraph[u].keys():
+            if (inversed_pgraph[u][v] or inversed_ngraph[u][v]) and colored[v] == False:
+                dfs2(v, colored, inversed_pgraph, inversed_ngraph, num)
 
     num = 0
     for v in vertex:
         if visited[v] == False:
-            dfs1(v, graph, visited, s)
+            dfs1(v, pgraph, ngraph, visited, s)
 
-    inversed_graph = {}
+    inversed_pgraph = {}
+    inversed_ngraph = {}
     for v1 in vertex:
         for v2 in vertex:
-            if v2 not in inversed_graph:
-                inversed_graph[v2] = {}
-            inversed_graph[v2][v1] = graph[v1][v2]
+            if v2 not in inversed_pgraph:
+                inversed_pgraph[v2] = {}
+                inversed_ngraph[v2] = {}
+            inversed_pgraph[v2][v1] = pgraph[v1][v2]
+            inversed_ngraph[v2][v1] = ngraph[v1][v2]
 
     for v in reversed(s):
         if colored[v] == False:
             num = num + 1
-            dfs2(v, colored, inversed_graph, num)
+            dfs2(v, colored, inversed_pgraph, inversed_ngraph, num)
 
     return colored
 
-def create_hyper_nodes(rules, positive_dependancy_graph):
-    rule_to_hyper_node_map = compute_strongly_connected_components(rules, positive_dependancy_graph)
+def create_hyper_nodes(rules, positive_dependancy_graph, negative_dependancy_graph):
+    rule_to_hyper_node_map = compute_strongly_connected_components(rules, positive_dependancy_graph, negative_dependancy_graph)
     hyper_nodes_to_rules_map = {}
     hyper_nodes = set()
     for k,v in rule_to_hyper_node_map.items():
@@ -251,7 +254,8 @@ def stratify(rules):
 
     positive_dependancy_graph, negative_dependancy_graph = build_dependancy_graph(rules)
 
-    rule_to_hyper_node_map, hyper_nodes_to_rules_map, hyper_nodes = create_hyper_nodes(rules, positive_dependancy_graph)
+
+    rule_to_hyper_node_map, hyper_nodes_to_rules_map, hyper_nodes = create_hyper_nodes(rules, positive_dependancy_graph, negative_dependancy_graph)
     hyper_positive_dependancy_graph, hyper_negative_dependancy_graph = build_hyper_nodes_dependancy(rules, rule_to_hyper_node_map, hyper_nodes_to_rules_map, positive_dependancy_graph, negative_dependancy_graph)
 
     hyper_nodes_in_degree = {}
@@ -358,7 +362,7 @@ def re_stratify_minus(deleting_rules, positive_dependancy_graph, negative_depend
             new_negative_dependancy_graph[rule1][rule2] = negative_dependancy_graph[rule1][rule2]
 
 
-    new_rule_to_hyper_node_map, new_hyper_nodes_to_rules_map, new_hyper_nodes = create_hyper_nodes(rest_rules, new_positive_dependancy_graph)
+    new_rule_to_hyper_node_map, new_hyper_nodes_to_rules_map, new_hyper_nodes = create_hyper_nodes(rest_rules, new_positive_dependancy_graph, new_negative_dependancy_graph)
     new_hyper_positive_dependancy_graph, new_hyper_negative_dependancy_graph = build_hyper_nodes_dependancy(rest_rules,
                                                                                                     new_rule_to_hyper_node_map,
                                                                                                     new_hyper_nodes_to_rules_map,

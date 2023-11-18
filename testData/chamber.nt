@@ -1,0 +1,25 @@
+<chamber1> <nextTo> <chamber2> .
+<chamber2> <nextTo> <chamber3> .
+<chamber3> <nextTo> <chamber4> .
+
+<chamber2> <nextTo> <chamber1> .
+<chamber3> <nextTo> <chamber2> .
+<chamber4> <nextTo> <chamber3> .
+
+<distance12> <distanceConcerns> <chamber1> .
+<distance12> <distanceConcerns> <chamber2> .
+
+<distance13> <distanceConcerns> <chamber1> .
+<distance13> <distanceConcerns> <chamber3> .
+
+<distance14> <distanceConcerns> <chamber1> .
+<distance14> <distanceConcerns> <chamber4> .
+
+<distance23> <distanceConcerns> <chamber3> .
+<distance23> <distanceConcerns> <chamber2> .
+
+<distance24> <distanceConcerns> <chamber4> .
+<distance24> <distanceConcerns> <chamber2> .
+
+<distance34> <distanceConcerns> <chamber3> .
+<distance34> <distanceConcerns> <chamber4> .
