@@ -1,0 +1,5 @@
+
+<hasEnergyGenerationApartFromSolarFarm>(X, E) :- <hasEnergyGeneration>(X, E) and <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(X, <EnergyFarm>) and not <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(X, <SolarFarm>) .
+
+
+<hasEnergyGenerationApartFromSolarFarm>(X, E) :- aggregate(<hasSubstation>(X, S) and <hasEnergyGenerationApartFromSolarFarm>(S, SE)) on X with sum(SE) as E .

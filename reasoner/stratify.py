@@ -311,7 +311,8 @@ def re_stratify_plus(new_rules, positive_dependancy_graph, negative_dependancy_g
                 hyper_negative_dependancy_graph[hn][rule_to_hyper_node_map[rule]] = hyper_negative_dependancy_graph[hn][rule_to_hyper_node_map[rule]] or negative_dependancy_graph[rule2][rule]
                 hyper_negative_dependancy_graph[rule_to_hyper_node_map[rule]][hn] = hyper_negative_dependancy_graph[rule_to_hyper_node_map[rule]][hn] or negative_dependancy_graph[rule][rule2]
 
-    hn_to_newhn_node_map, newhn_nodes_to_hn_map, new_hns = create_hyper_nodes(hyper_nodes, hyper_positive_dependancy_graph)
+    #modified
+    hn_to_newhn_node_map, newhn_nodes_to_hn_map, new_hns = create_hyper_nodes(hyper_nodes, hyper_positive_dependancy_graph, hyper_negative_dependancy_graph)
 
     updated_hyper_nodes = set()
     for rule in new_rules:

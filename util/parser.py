@@ -24,6 +24,13 @@ extended_atom_pattern = re.compile(r"((?P<MTLOperator>[^\s]*)\[(?P<window_size>\
 
 func_pattern = re.compile(r"\s*func:.*", re.I)
 
+def is_digit(x):
+	try:
+		float(x)
+		return True
+	except ValueError:
+		return False
+
 def parse_nt_line(line):
 	#print(line)
 
@@ -150,7 +157,7 @@ def parse_data(f):
 			if not triple:
 				continue
 			subj, pred, obj = triple
-			D.add(Term.getTerm(subj, "constant"), Term.getTerm(pred, "constant"), Term.getTerm(obj, "constant") if (not obj.isdigit() and obj[0] != "\"") else (Term.getTerm(obj, "literal") if not obj.isdigit() else Term.getTerm(float(obj), "digital")))
+			D.add(Term.getTerm(subj, "constant"), Term.getTerm(pred, "constant"), Term.getTerm(obj, "constant") if (not is_digit(obj) and obj[0] != "\"") else (Term.getTerm(obj, "literal") if not is_digit(obj) else Term.getTerm(float(obj), "digital")))
 
 	return D
 

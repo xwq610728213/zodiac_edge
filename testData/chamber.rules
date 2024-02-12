@@ -1,8 +1,2 @@
-<hasValue>(D, 1) :- <nextTo>(X, Y) and <distanceConcerns>(D, X) and <distanceConcerns>(D, Y) .
-
-<InitializedDistance>(D) :-  <distanceConcerns>(D, X) and <distanceConcerns>(D, Y) and not <hasValue>(D, V) .
-
-#<hasValue>(D, 2) :-  <distanceConcerns>(D, X) and <distanceConcerns>(D, Y) and <InitializedDistance>(D) .
-
-#<hasValue>(D2, VN) :- <distanceConcerns>(D, X) and <distanceConcerns>(D, Y) and <hasValue>(D, V1) and <nextTo>(Y, Z) and <distanceConcerns>(D2, X) and <distanceConcerns>(D2, Z) and <InitializedDistance>(D2) and bind(V1+1 as VN) .
+<hasEnergyGeneration>(X, E) :- aggregate(<hasSubstation>(X, S) and <hasEnergyGeneration>(S, SE)) on X with sum(SE) as E .
 

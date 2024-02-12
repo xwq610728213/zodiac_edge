@@ -16,7 +16,8 @@ def main():
 
     f = open("testData/chamber.nt", "r")
     rf = open("testData/chamber.rules", "r")
-    rf2 = open("testData/chamber.rules", "r")
+    rf2 = open("testData/chamber_additional_rules.rules", "r")
+    f2 = open("testData/chamber_extra_data.nt", "r")
 
 
     """
@@ -43,9 +44,10 @@ def main():
     experiment_result["Creat_program_time"] = time.time() - start_time
     print("Creat program time: " + str(experiment_result["Creat_program_time"]) + " s")
     print("IDB size: " + str(len(program.idb)))
-    program.edb.print_content()
+    #program.edb.print_content()
 
-    program.idb.print_content()
+    rs = program.query(subject= Term.getTerm("stateStation", "constant"), predicate= Term.getTerm("hasEnergyGenerationApartFromSolarFarm", "constant"), object= Term.getTerm("X", "variable"))
+    print(rs)
 
     """
     info = p.memory_full_info()
@@ -58,6 +60,10 @@ def main():
     experiment_result["Add_extra_rules_time"] = time.time() - start_time
     print("Add rules time: " + str(experiment_result["Add_extra_rules_time"]) + " s")
     print("IDB size: " + str(len(program.idb)))
+    #program.idb.print_content()
+    rs = program.query(subject=Term.getTerm("stateStation", "constant"),
+                       predicate=Term.getTerm("hasEnergyGenerationApartFromSolarFarm", "constant"), object=Term.getTerm("X", "variable"))
+    print(rs)
     """
     gc.collect()
     info = p.memory_full_info()
@@ -79,6 +85,11 @@ def main():
         experiment_result["Add_extra_data_time"] = time.time() - start_time
         print("Add data time: " + str(experiment_result["Add_extra_data_time"]) + " s")
         print("IDB size: " + str(len(program.idb)))
+        #program.idb.print_content()
+        rs = program.query(subject=Term.getTerm("stateStation", "constant"),
+                           predicate=Term.getTerm("hasEnergyGenerationApartFromSolarFarm", "constant"),
+                           object=Term.getTerm("X", "variable"))
+        print(rs)
         # print("EDB size: " + str(len(program.edb)))
         # program.edb.print_content()
         #program.idb.print_content()
@@ -90,6 +101,11 @@ def main():
         experiment_result["Delete_extra_data_time"] = time.time() - start_time
         print("Delete data time: " + str(experiment_result["Delete_extra_data_time"]) + " s")
         print("IDB size: " + str(len(program.idb)))
+        #program.idb.print_content()
+        rs = program.query(subject=Term.getTerm("stateStation", "constant"),
+                           predicate=Term.getTerm("hasEnergyGenerationApartFromSolarFarm", "constant"),
+                           object=Term.getTerm("X", "variable"))
+        print(rs)
         # program.idb.print_content()
 
     gc.collect()
@@ -99,7 +115,10 @@ def main():
     program.delete_rules(R2)
     experiment_result["Delete_extra_rules_time"] = time.time() - start_time
     print("Delete rules time: " + str(experiment_result["Delete_extra_rules_time"]) + " s")
-    print("IDB size: " + str(len(program.idb)))
+    #print("IDB size: " + str(len(program.idb)))
+    rs = program.query(subject=Term.getTerm("stateStation", "constant"),
+                       predicate=Term.getTerm("hasEnergyGenerationApartFromSolarFarm", "constant"), object=Term.getTerm("X", "variable"))
+    print(rs)
     # program.idb.print_content()
 
     """
