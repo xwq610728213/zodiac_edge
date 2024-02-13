@@ -1,2 +1,2 @@
-<hasEnergyGeneration>(X, E) :- aggregate(<hasSubstation>(X, S) and <hasEnergyGeneration>(S, SE)) on X with sum(SE) as E .
+<hasEnergyProduction>(X, E) :- aggregate(<hasSubstation>(X, S) and <hasEnergyProduction>(S, SE)) on X with sum(SE) as E .
 

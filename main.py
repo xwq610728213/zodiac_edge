@@ -46,7 +46,7 @@ def main():
     print("IDB size: " + str(len(program.idb)))
     #program.edb.print_content()
 
-    rs = program.query(subject= Term.getTerm("stateStation", "constant"), predicate= Term.getTerm("hasEnergyGenerationApartFromSolarFarm", "constant"), object= Term.getTerm("X", "variable"))
+    rs = program.query(subject= Term.getTerm("stateStation", "constant"), predicate= Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"), object= Term.getTerm("X", "variable"))
     print(rs)
 
     """
@@ -62,7 +62,7 @@ def main():
     print("IDB size: " + str(len(program.idb)))
     #program.idb.print_content()
     rs = program.query(subject=Term.getTerm("stateStation", "constant"),
-                       predicate=Term.getTerm("hasEnergyGenerationApartFromSolarFarm", "constant"), object=Term.getTerm("X", "variable"))
+                       predicate=Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"), object=Term.getTerm("X", "variable"))
     print(rs)
     """
     gc.collect()
@@ -87,7 +87,7 @@ def main():
         print("IDB size: " + str(len(program.idb)))
         #program.idb.print_content()
         rs = program.query(subject=Term.getTerm("stateStation", "constant"),
-                           predicate=Term.getTerm("hasEnergyGenerationApartFromSolarFarm", "constant"),
+                           predicate=Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"),
                            object=Term.getTerm("X", "variable"))
         print(rs)
         # print("EDB size: " + str(len(program.edb)))
@@ -103,7 +103,7 @@ def main():
         print("IDB size: " + str(len(program.idb)))
         #program.idb.print_content()
         rs = program.query(subject=Term.getTerm("stateStation", "constant"),
-                           predicate=Term.getTerm("hasEnergyGenerationApartFromSolarFarm", "constant"),
+                           predicate=Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"),
                            object=Term.getTerm("X", "variable"))
         print(rs)
         # program.idb.print_content()
@@ -117,7 +117,7 @@ def main():
     print("Delete rules time: " + str(experiment_result["Delete_extra_rules_time"]) + " s")
     #print("IDB size: " + str(len(program.idb)))
     rs = program.query(subject=Term.getTerm("stateStation", "constant"),
-                       predicate=Term.getTerm("hasEnergyGenerationApartFromSolarFarm", "constant"), object=Term.getTerm("X", "variable"))
+                       predicate=Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"), object=Term.getTerm("X", "variable"))
     print(rs)
     # program.idb.print_content()
 

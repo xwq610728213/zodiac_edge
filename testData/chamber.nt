@@ -9,9 +9,9 @@
 <city_1_region_2_station> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
 <city_1_region_3_station> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
 
-<city_1_region_1_station> <hasEnergyGeneration> 14 .
-<city_1_region_2_station> <hasEnergyGeneration> 17 .
-<city_1_region_3_station> <hasEnergyGeneration> 12 .
+<city_1_region_1_station> <hasEnergyProduction> 14 .
+<city_1_region_2_station> <hasEnergyProduction> 17 .
+<city_1_region_3_station> <hasEnergyProduction> 12 .
 
 <city_2_station> <hasSubstation> <city_2_region_1_station> .
 <city_2_station> <hasSubstation> <city_2_region_2_station> .
@@ -19,6 +19,6 @@
 <city_2_region_1_station> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
 <city_2_region_2_station> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
 
-<city_2_region_1_station> <hasEnergyGeneration> 10 .
-<city_2_region_2_station> <hasEnergyGeneration> 6.5 .
+<city_2_region_1_station> <hasEnergyProduction> 10 .
+<city_2_region_2_station> <hasEnergyProduction> 6.5 .
 
