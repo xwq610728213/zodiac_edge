@@ -2,7 +2,7 @@
 
 if __name__ == "__main__":
 
-    w_num = 50
+    w_num = 400
     w_add_rate = 0.5
 
     f = open("testData/windTurbineTest1000.nt","w")

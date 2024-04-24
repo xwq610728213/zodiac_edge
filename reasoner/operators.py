@@ -119,7 +119,8 @@ def evaluate_atom(bindings, join_eatoms_list, index, data_store, binding_set, **
 
     #If it is the incremental eatom, search in incre_db, otherwise search in data_store
     rs = None
-    if "incre_eatom" not in kwargs or join_eatoms_list[index] != kwargs['incre_eatom']:
+
+    if ("incre_eatom" not in kwargs) or (str(join_eatoms_list[index]) != str(kwargs['incre_eatom'])):
         rs = data_store.query(tp_s, tp_p, tp_o)
     else:
         if kwargs['incre_db']:

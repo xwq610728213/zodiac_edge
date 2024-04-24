@@ -13,12 +13,12 @@ from util.parser import parse_data, parse_rules
 def main():
     experiment_result = {}
     f2 = None
-
+    """
     f = open("testData/chamber.nt", "r")
     rf = open("testData/chamber.rules", "r")
     rf2 = open("testData/chamber_additional_rules.rules", "r")
     f2 = open("testData/chamber_extra_data.nt", "r")
-
+    """
 
     """
     f = open("testData/windTurbineTest_complicate_case.nt", "r")
@@ -28,13 +28,13 @@ def main():
     
     """
 
-    """
+
 
     f = open("testData/windTurbineTest1000.nt", "r")
-    f2 = open("testData/windTurbinetest1000_additiveData.nt", "r")
+    #f2 = open("testData/windTurbinetest1000_additiveData.nt", "r")
     rf = open("testData/windTurbineTestRules.rules", "r")
     rf2 = open("testData/windTurbineTestRulesExtraRules.rules", "r")
-    """
+
 
     D = parse_data(f)
     R = parse_rules(rf)
@@ -45,8 +45,9 @@ def main():
     print("Creat program time: " + str(experiment_result["Creat_program_time"]) + " s")
     print("IDB size: " + str(len(program.idb)))
     #program.edb.print_content()
+    #program.idb.print_content()
 
-    rs = program.query(subject= Term.getTerm("stateStation", "constant"), predicate= Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"), object= Term.getTerm("X", "variable"))
+    rs = program.query(subject= Term.getTerm("state_station", "constant"), predicate= Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"), object= Term.getTerm("X", "variable"))
     print(rs)
 
     """
@@ -61,7 +62,7 @@ def main():
     print("Add rules time: " + str(experiment_result["Add_extra_rules_time"]) + " s")
     print("IDB size: " + str(len(program.idb)))
     #program.idb.print_content()
-    rs = program.query(subject=Term.getTerm("stateStation", "constant"),
+    rs = program.query(subject=Term.getTerm("state_station", "constant"),
                        predicate=Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"), object=Term.getTerm("X", "variable"))
     print(rs)
     """
@@ -86,7 +87,7 @@ def main():
         print("Add data time: " + str(experiment_result["Add_extra_data_time"]) + " s")
         print("IDB size: " + str(len(program.idb)))
         #program.idb.print_content()
-        rs = program.query(subject=Term.getTerm("stateStation", "constant"),
+        rs = program.query(subject=Term.getTerm("state_station", "constant"),
                            predicate=Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"),
                            object=Term.getTerm("X", "variable"))
         print(rs)
@@ -102,7 +103,7 @@ def main():
         print("Delete data time: " + str(experiment_result["Delete_extra_data_time"]) + " s")
         print("IDB size: " + str(len(program.idb)))
         #program.idb.print_content()
-        rs = program.query(subject=Term.getTerm("stateStation", "constant"),
+        rs = program.query(subject=Term.getTerm("state_station", "constant"),
                            predicate=Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"),
                            object=Term.getTerm("X", "variable"))
         print(rs)
@@ -116,7 +117,7 @@ def main():
     experiment_result["Delete_extra_rules_time"] = time.time() - start_time
     print("Delete rules time: " + str(experiment_result["Delete_extra_rules_time"]) + " s")
     #print("IDB size: " + str(len(program.idb)))
-    rs = program.query(subject=Term.getTerm("stateStation", "constant"),
+    rs = program.query(subject=Term.getTerm("state_station", "constant"),
                        predicate=Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"), object=Term.getTerm("X", "variable"))
     print(rs)
     # program.idb.print_content()
@@ -196,9 +197,9 @@ def main():
 
 def ds_mem():
     pid = os.getpid()
-    p = psutil.Process(pid)
-    info = p.memory_full_info()
-    print("Mem: " + str(info.uss / 1024. / 1024.) + " Mb")
+    #p = psutil.Process(pid)
+    #info = p.memory_full_info()
+    #print("Mem: " + str(info.uss / 1024. / 1024.) + " Mb")
 
     f = open("persistData/persistData.nt", "r")
     D = parse_data(f)
