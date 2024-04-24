@@ -1,24 +1,24 @@
-<stateStation> <hasSubstation> <city_1_station> .
-<stateStation> <hasSubstation> <city_2_station> .
+<state_station> <hasSubstation> <city_1_station> .
+<state_station> <hasSubstation> <city_2_station> .
 
-<city_1_station> <hasSubstation> <city_1_region_1_station> .
-<city_1_station> <hasSubstation> <city_1_region_2_station> .
-<city_1_station> <hasSubstation> <city_1_region_3_station> .
+<city_1_station> <hasSubstation> <energy_farm_1> .
+<city_1_station> <hasSubstation> <energy_farm_2> .
+<city_1_station> <hasSubstation> <energy_farm_3> .
 
-<city_1_region_1_station> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
-<city_1_region_2_station> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
-<city_1_region_3_station> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
+<energy_farm_1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
+<energy_farm_2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
+<energy_farm_3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
 
-<city_1_region_1_station> <hasEnergyProduction> 14 .
-<city_1_region_2_station> <hasEnergyProduction> 17 .
-<city_1_region_3_station> <hasEnergyProduction> 12 .
+<energy_farm_1> <hasEnergyProduction> 14 .
+<energy_farm_2> <hasEnergyProduction> 17 .
+<energy_farm_3> <hasEnergyProduction> 12 .
 
-<city_2_station> <hasSubstation> <city_2_region_1_station> .
-<city_2_station> <hasSubstation> <city_2_region_2_station> .
+<city_2_station> <hasSubstation> <energy_farm_4> .
+<city_2_station> <hasSubstation> <energy_farm_5> .
 
-<city_2_region_1_station> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
-<city_2_region_2_station> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
+<energy_farm_4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
+<energy_farm_5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
 
-<city_2_region_1_station> <hasEnergyProduction> 10 .
-<city_2_region_2_station> <hasEnergyProduction> 6.5 .
+<energy_farm_4> <hasEnergyProduction> 10 .
+<energy_farm_5> <hasEnergyProduction> 6.5 .
 

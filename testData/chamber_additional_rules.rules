@@ -3,3 +3,5 @@
 
 
 <hasEnergyProductionApartFromSolarFarm>(X, E) :- aggregate(<hasSubstation>(X, S) and <hasEnergyProductionApartFromSolarFarm>(S, SE)) on X with sum(SE) as E .
+
+
