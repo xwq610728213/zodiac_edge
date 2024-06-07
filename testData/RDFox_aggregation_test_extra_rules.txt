@@ -1,0 +1,9 @@
+PREFIX test: <https://rdfox.com/default-base-iri/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+[?x, test:hasNeighbourATAverageMeasurement, ?at] :- AGGREGATE(
+        [?x, test:hasNeighbour, ?y],
+        [?y, test:hasAirTemperatureMesurement, ?t]
+        ON ?x
+        BIND AVG(?t) AS ?at) .

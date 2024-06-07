@@ -1,0 +1,2 @@
+
+<hasNeighbourATAverageMeasurement>(X, AT) :- aggregate( <hasNeighbour>(X, Z) and <hasAirTemperatureMesurement>(Z, T)) on X with AVG(T) as AT .

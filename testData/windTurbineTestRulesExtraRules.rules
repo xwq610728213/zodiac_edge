@@ -1,6 +1,14 @@
 #<hasNeighbourCopy>(X, Y) :- <hasNeighbourCopy>(Y, X) .
 #<hasNeighbour>(X, Y) :- <hasNeighbour>(Y, X) .
 
+#<hasNeighbour>(X, Y) :- <hasNeighbour>(X, Z) and <hasNeighbour>(Z, Y) .
+<p1>(X, Y) :- <hasNeighbour>(X, Y) .
+#<p2>(X, Y) :- <p1>(X, Y) .
+#<p3>(X, Y) :- <p2>(X, Y) .
+#<p1>(X, Y) :- <p3>(X, Y) and <p2>(X, Y) .
+
+#<hasNeighbour>(X, Y) :- <hasNeighbour>(X, Z) and <hasNeighbour>(Z, Y) .
+
 #<hasNeighbourCopy>(X, Y) :- <hasNeighbourCopy>(X, Z) and <hasNeighbourCopy>(Z, Y) and COMP(X, !=, Y) .
 #<hasNeighbour>(X, Y) :- <hasNeighbour>(X, Z) and <hasNeighbour>(Z, Y) .
 

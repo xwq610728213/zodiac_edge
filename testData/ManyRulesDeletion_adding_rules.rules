@@ -1,0 +1,2 @@
+
+<p9>(X, Y) :- <hasNeighbour>(X, Y) and <SensorType4>(X) and <SensorType2>(Y) .

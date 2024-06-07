@@ -1,0 +1,3 @@
+<hasNeighbour>(X, Y) :- <hasNeighbour>(Y, X) .
+
+<hasNeighbour>(X, Y) :- <hasNeighbour>(X, Z) and <hasNeighbour>(Z, Y) .

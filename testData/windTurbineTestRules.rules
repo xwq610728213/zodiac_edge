@@ -1,6 +1,11 @@
 <hasNeighbour>(X, Y) :- <hasNeighbour>(Y, X) .
 <hasNeighbour>(X, Y) :- <hasNeighbour>(X, Z) and <hasNeighbour>(Z, Y) .
 
+#<p1>(X, Y) :- <hasNeighbour>(X, Y) .
+#<p2>(X, Y) :- <p1>(X, Y) .
+#<p3>(X, Y) :- <p2>(X, Y) .
+#<p1>(X, Y) :- <p3>(X, Y) and <p2>(X, Y) .
+
 #<hasNeighbourCopy>(X, Y) :- <hasNeighbour>(X, Y) .
 
 #<hasNeighbourCopy2>(X, Y) :- <hasNeighbourCopy>(X, Y) .
@@ -20,7 +25,7 @@
 
 # <HighAirTemperatureDevice>(X) :- <hasAirTemperatureMesurement>(X, Y) and COMP( Y, >, 40) .
 
-# <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(X, Y) :- <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(X, Z) and <http://www.w3.org/2000/01/rdf-schema#subClassOf>(Z, Y) .
+#<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(X, Y) :- <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(X, Z) and <http://www.w3.org/2000/01/rdf-schema#subClassOf>(Z, Y) .
 
 
 

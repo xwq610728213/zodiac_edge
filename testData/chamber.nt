@@ -10,8 +10,11 @@
 <energy_farm_3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
 
 <energy_farm_1> <hasEnergyProduction> 14 .
+<energy_farm_1> <hasWindSpeed> 14 .
 <energy_farm_2> <hasEnergyProduction> 17 .
+<energy_farm_2> <hasWindSpeed> 13 .
 <energy_farm_3> <hasEnergyProduction> 12 .
+<energy_farm_3> <hasWindSpeed> 15 .
 
 <city_2_station> <hasSubstation> <energy_farm_4> .
 <city_2_station> <hasSubstation> <energy_farm_5> .
@@ -20,5 +23,7 @@
 <energy_farm_5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <EnergyFarm> .
 
 <energy_farm_4> <hasEnergyProduction> 10 .
+<energy_farm_4> <hasWindSpeed> 14 .
 <energy_farm_5> <hasEnergyProduction> 6.5 .
+<energy_farm_5> <hasWindSpeed> 15 .
 
