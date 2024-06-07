@@ -3,7 +3,7 @@ Attention: Only upper letters and '_' are allowed in a SELF_DEFINED_FUNCTION's n
 Input: some digital args
 Attention: return object mush be hashable and string-able
 """
-import numpy as np
+#import numpy as np
 
 def BIND_EXAMPLE(ele1):
     return ele1 + 1

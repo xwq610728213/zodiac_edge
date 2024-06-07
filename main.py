@@ -1,5 +1,6 @@
 import gc
 import os
+from memory_profiler import profile
 
 #import psutil
 import time
@@ -8,6 +9,7 @@ from classes.term import Term
 from reasoner import program
 from reasoner.program import Program
 from util.parser import parse_data, parse_rules
+
 
 
 def main():
@@ -20,6 +22,7 @@ def main():
     f2 = open("testData/chamber_extra_data.nt", "r")
     """
 
+
     """
     f = open("testData/windTurbineTest_complicate_case.nt", "r")
     f2 = open("testData/windTurbineTest_complicate_case_extra_data.nt", "r")
@@ -29,11 +32,24 @@ def main():
     """
 
 
-
+    """
     f = open("testData/windTurbineTest1000.nt", "r")
     #f2 = open("testData/windTurbinetest1000_additiveData.nt", "r")
-    rf = open("testData/windTurbineTestRules.rules", "r")
-    rf2 = open("testData/windTurbineTestRulesExtraRules.rules", "r")
+    #rf = open("testData/ManyRulesDeletion.rules", "r")
+    #rf2 = open("testData/ManyRulesDeletion_adding_rules.rules", "r")
+    #rf3 = open("testData/ManyRulesDeletion_deleting_rules.rules", "r")
+
+    #f2 = open("testData/doubleNegationExtraData.nt", "r")
+    #rf = open("testData/doubleNegationRules.rules", "r")
+    #rf2 = open("testData/doubleNegationRules_extra.rules", "r")
+    """
+
+
+    f = open("testData/aggregation_test_data.nt", "r")
+    rf = open("testData/aggregation_test_original_rules.rules", "r")
+    rf2 = open("testData/aggregation_test_extra_rules.rules", "r")
+
+
 
 
     D = parse_data(f)
@@ -63,7 +79,7 @@ def main():
     print("IDB size: " + str(len(program.idb)))
     #program.idb.print_content()
     rs = program.query(subject=Term.getTerm("state_station", "constant"),
-                       predicate=Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"), object=Term.getTerm("X", "variable"))
+                       predicate=Term.getTerm("hasWindSpeed", "constant"), object=Term.getTerm("X", "variable"))
     print(rs)
     """
     gc.collect()
@@ -88,7 +104,7 @@ def main():
         print("IDB size: " + str(len(program.idb)))
         #program.idb.print_content()
         rs = program.query(subject=Term.getTerm("state_station", "constant"),
-                           predicate=Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"),
+                           predicate=Term.getTerm("hasWindSpeed", "constant"),
                            object=Term.getTerm("X", "variable"))
         print(rs)
         # print("EDB size: " + str(len(program.edb)))
@@ -104,21 +120,21 @@ def main():
         print("IDB size: " + str(len(program.idb)))
         #program.idb.print_content()
         rs = program.query(subject=Term.getTerm("state_station", "constant"),
-                           predicate=Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"),
+                           predicate=Term.getTerm("hasWindSpeed", "constant"),
                            object=Term.getTerm("X", "variable"))
         print(rs)
         # program.idb.print_content()
 
     gc.collect()
     rf2.seek(0, 0)
-    R2 = parse_rules(rf2)
+    R3 = parse_rules(rf2)
     start_time = time.time()
-    program.delete_rules(R2)
+    program.delete_rules(R3)
     experiment_result["Delete_extra_rules_time"] = time.time() - start_time
     print("Delete rules time: " + str(experiment_result["Delete_extra_rules_time"]) + " s")
-    #print("IDB size: " + str(len(program.idb)))
+    print("IDB size: " + str(len(program.idb)))
     rs = program.query(subject=Term.getTerm("state_station", "constant"),
-                       predicate=Term.getTerm("hasEnergyProductionApartFromSolarFarm", "constant"), object=Term.getTerm("X", "variable"))
+                       predicate=Term.getTerm("hasWindSpeed", "constant"), object=Term.getTerm("X", "variable"))
     print(rs)
     # program.idb.print_content()
 
@@ -196,7 +212,7 @@ def main():
 
 
 def ds_mem():
-    pid = os.getpid()
+    #pid = os.getpid()
     #p = psutil.Process(pid)
     #info = p.memory_full_info()
     #print("Mem: " + str(info.uss / 1024. / 1024.) + " Mb")
@@ -205,12 +221,13 @@ def ds_mem():
     D = parse_data(f)
     program = Program(data=D)
     gc.collect()
-    info = p.memory_full_info()
-    print("Mem: " + str(info.uss / 1024. / 1024.) + " Mb")
+    #info = p.memory_full_info()
+
+    #print("Mem: " + str(info.uss / 1024. / 1024.) + " Mb")
 
 if __name__ == "__main__":
-    #main()
     main()
+
     """
     d_f = open("./testData/WindFarm/data.nt", "r")
     r_f = open("./testData/WindFarm/rules.rules", "r")

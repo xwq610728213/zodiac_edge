@@ -76,6 +76,7 @@ def generate_idb(rules, data_store, last_idb = None, incremental_operation = Non
                             incre_neg_idb.add(subject, predicate, object)
                         """
             return idb
+    #In case of incremental operation
     else:
         incre_neg_idb = DataStore()
         incre_pos_idb = DataStore()

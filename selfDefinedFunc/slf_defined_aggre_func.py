@@ -3,11 +3,13 @@ Attention: Only upper letters and '_' are allowed in a SELF_DEFINED_FUNCTION's n
 Input: a list of values
 Attention: return object mush be hashable and string-able
 """
-import numpy as np
+#import numpy as np
 
+"""
 def VARIANCE(lst):
     return np.var(lst)
-
+"""
+"""
 def VECTORIZE(lst):
     class Vect:
         def __init__(self, vec):
@@ -24,5 +26,6 @@ def VECTORIZE(lst):
             return self.vector
 
     return Vect(np.array(lst))
+"""
 
 
