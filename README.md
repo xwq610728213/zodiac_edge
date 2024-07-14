@@ -1,137 +1,141 @@
+##Additional test
+
+We additionally tested ZodiacEdge with following rule set on LUBM1, LUBM10 and LUBM100 data set. Rules marked with * are randomly picked and rules marked with # are some rules in the end of the topological order of the rule set's HRDG.
+
 Additional test's rule set:
 
-| # | * | rule |
+| * | # | rule |
 |---|---|-----------------------------------------------------------|
-| | |\<advisor>(?X, ?Y) :- <src_advisor>(?X, ?Y) . |
-| | |\<AssistantProfessor>(?X) :- <src_AssistantProfessor>(?X) . |
-| | |\<AssociateProfessor>(?X) :- <src_AssociateProfessor>(?X) . |
-| | |\<Course>(?X) :- <src_Course>(?X) . |
-| | |\<Department>(?X) :- <src_Department>(?X) . |
-| | |\<doctoralDegreeFrom>(?X, ?Y) :- <src_doctoralDegreeFrom>(?X, ?Y) . |
-| | |\<emailAddress>(?X, ?Y) :- <src_emailAddress>(?X, ?Y) . |
-| | |\<FullProfessor>(?X) :- <src_FullProfessor>(?X) . |
-| | |\<GraduateCourse>(?X) :- <src_GraduateCourse>(?X) . |
-| | |\<GraduateStudent>(?X) :- <src_GraduateStudent>(?X) . |
-| | |\<headOf>(?X, ?Y) :- <src_headOf>(?X, ?Y) . |
-| | |\<Lecturer>(?X) :- <src_Lecturer>(?X) . |
-| | |\<mastersDegreeFrom>(?X, ?Y) :- <src_mastersDegreeFrom>(?X, ?Y) . |
-| | |\<memberOf>(?X, ?Y) :- <src_memberOf>(?X, ?Y) . |
-| | |\<name>(?X, ?Y) :- <src_name>(?X, ?Y) . |
-| | |\<Publication>(?X) :- <src_Publication>(?X) . |
-| | |\<publicationAuthor>(?X, ?Y) :- <src_publicationAuthor>(?X, ?Y) . |
-| | |\<ResearchAssistant>(?X) :- <src_ResearchAssistant>(?X) . |
-| | |\<ResearchGroup>(?X) :- <src_ResearchGroup>(?X) . |
-| | |\<researchInterest>(?X, ?Y) :- <src_researchInterest>(?X, ?Y) . |
-| | |\<subOrganizationOf>(?X, ?Y) :- <src_subOrganizationOf>(?X, ?Y) . |
-| | |\<takesCourse>(?X, ?Y) :- <src_takesCourse>(?X, ?Y) . |
-| | |\<teacherOf>(?X, ?Y) :- <src_teacherOf>(?X, ?Y) . |
-| | |\<TeachingAssistant>(?X) :- <src_TeachingAssistant>(?X) . |
-| | |\<teachingAssistantOf>(?X, ?Y) :- <src_teachingAssistantOf>(?X, ?Y) . |
-| | |\<telephone>(?X, ?Y) :- <src_telephone>(?X, ?Y) . |
-| | |\<undergraduateDegreeFrom>(?X, ?Y) :- <src_undergraduateDegreeFrom>(?X, ?Y) . |
-| | |\<UndergraduateStudent>(?X) :- <src_UndergraduateStudent>(?X) . |
-| | |\<University>(?X) :- <src_University>(?X) . |
-| | |\<worksFor>(?X, ?Y) :- <src_worksFor>(?X, ?Y) . |
-| | |\<Employee>(?X) :- <AdministrativeStaff>(?X) . |
-| | |\<Person>(?X) :- <advisor>(?X, ?X1) . |
-| | |\<Professor>(?X1) :- <advisor>(?X, ?X1) . |
-| | |\<Organization>(?X) :- <affiliatedOrganizationOf>(?X, ?X1) . |
-| | |\<Organization>(?X1) :- <affiliatedOrganizationOf>(?X, ?X1) . |
-| | |\<Organization>(?X) :- <affiliateOf>(?X, ?X1) . |
-| | |\<Person>(?X1) :- <affiliateOf>(?X, ?X1) . |
-| | |\<Person>(?X) :- <age>(?X, ?X1) . |
-| | |\<Publication>(?X) :- <Article>(?X) . |
-| | |\<Professor>(?X) :- <AssistantProfessor>(?X) . |
-| | |\<Professor>(?X) :- <AssociateProfessor>(?X) . |
-| | |\<Publication>(?X) :- <Book>(?X) . |
-| | |\<Person>(?X) :- <Chair>(?X) . |
-| | |\<Professor>(?X) :- <Chair>(?X) . |
-| | |\<AdministrativeStaff>(?X) :- <ClericalStaff>(?X) . |
-| | |\<Organization>(?X) :- <College>(?X) . |
-| | |\<Article>(?X) :- <ConferencePaper>(?X) . |
-| | |\<Work>(?X) :- <Course>(?X) . |
-| | |\<Professor>(?X) :- <Dean>(?X) . |
-| | |\<Person>(?X) :- <degreeFrom>(?X, ?X1) . |
-| | |\<University>(?X1) :- <degreeFrom>(?X, ?X1) . |
-| | |\<hasAlumnus>(?X, ?Y) :- <degreeFrom>(?Y, ?X) . |
-| | |\<Organization>(?X) :- <Department>(?X) . |
-| | |\<Person>(?X) :- <Director>(?X) . |
-| | |\<Person>(?X) :- <doctoralDegreeFrom>(?X, ?X1) . |
-| | |\<University>(?X1) :- <doctoralDegreeFrom>(?X, ?X1) . |
-| | |\<degreeFrom>(?X, ?Y) :- <doctoralDegreeFrom>(?X, ?Y) . |
-| | |\<Person>(?X) :- <emailAddress>(?X, ?X1) . |
-| | |\<Person>(?X) :- <Employee>(?X) . |
-| | |\<Employee>(?X) :- <Faculty>(?X) . |
-| | |\<Professor>(?X) :- <FullProfessor>(?X) . |
-| | |\<Course>(?X) :- <GraduateCourse>(?X) . |
-| | |\<Person>(?X) :- <GraduateStudent>(?X) . |
-| | |\<Person>(?X1) :- <hasAlumnus>(?X, ?X1) . |
-| | |\<University>(?X) :- <hasAlumnus>(?X, ?X1) . |
-| | |\<degreeFrom>(?X, ?Y) :- <hasAlumnus>(?Y, ?X) . |
-| | |\<Dean>(?X) :- <headOf>(?X, ?X1) and <College>(?X1) . |
-| | |\<worksFor>(?X, ?Y) :- <headOf>(?X, ?Y) . |
-| | |\<Organization>(?X) :- <Institute>(?X) . |
-| | |\<Article>(?X) :- <JournalArticle>(?X) . |
-| | |\<Faculty>(?X) :- <Lecturer>(?X) . |
-| | |\<Course>(?X1) :- <listedCourse>(?X, ?X1) . |
-| | |\<Schedule>(?X) :- <listedCourse>(?X, ?X1) . |
-| | |\<Publication>(?X) :- <Manual>(?X) . |
-| | |\<Person>(?X) :- <mastersDegreeFrom>(?X, ?X1) . |
-| | |\<University>(?X1) :- <mastersDegreeFrom>(?X, ?X1) . |
-| | |\<degreeFrom>(?X, ?Y) :- <mastersDegreeFrom>(?X, ?Y) . |
-| | |\<Organization>(?X) :- <member>(?X, ?X1) . |
-| | |\<Person>(?X1) :- <member>(?X, ?X1) . |
-| | |\<memberOf>(?X, ?Y) :- <member>(?Y, ?X) . |
-| | |\<member>(?X, ?Y) :- <memberOf>(?Y, ?X) . |
-| | |\<Organization>(?X) :- <orgPublication>(?X, ?X1) . |
-| | |\<Publication>(?X1) :- <orgPublication>(?X, ?X1) . |
-| | |\<Chair>(?X) :- <Person>(?X) and <headOf>(?X, ?X1) and <Department>(?X1) . |
-| | |\<Director>(?X) :- <Person>(?X) and <headOf>(?X, ?X1) and <Program>(?X1) . |
-| | |\<Student>(?X) :- <Person>(?X) and <takesCourse>(?X, ?X1) and <Course>(?X1) . |
-| | |\<TeachingAssistant>(?X) :- <Person>(?X) and <teachingAssistantOf>(?X, ?X1) and <Course>(?X1) . |
-| | |\<Employee>(?X) :- <Person>(?X) and <worksFor>(?X, ?X1) and <Organization>(?X1) . |
-| | |\<Faculty>(?X) :- <PostDoc>(?X) . |
-| | |\<Faculty>(?X) :- <Professor>(?X) . |
-| | |\<Organization>(?X) :- <Program>(?X) . |
-| | |\<Person>(?X1) :- <publicationAuthor>(?X, ?X1) . |
-| | |\<Publication>(?X) :- <publicationAuthor>(?X, ?X1) . |
-| | |\<Publication>(?X) :- <publicationDate>(?X, ?X1) . |
-| | |\<Publication>(?X) :- <publicationResearch>(?X, ?X1) . |
-| | |\<Research>(?X1) :- <publicationResearch>(?X, ?X1) . |
-| | |\<Work>(?X) :- <Research>(?X) . |
-| | |\<Person>(?X) :- <ResearchAssistant>(?X) . |
-| | |\<Organization>(?X) :- <ResearchGroup>(?X) . |
-| | |\<Research>(?X1) :- <researchProject>(?X, ?X1) . |
-| | |\<ResearchGroup>(?X) :- <researchProject>(?X, ?X1) . |
-| | |\<Publication>(?X) :- <Software>(?X) . |
-| | |\<Publication>(?X1) :- <softwareDocumentation>(?X, ?X1) . |
-| | |\<Software>(?X) :- <softwareDocumentation>(?X, ?X1) . |
-| | |\<Software>(?X) :- <softwareVersion>(?X, ?X1) . |
-| | |\<Publication>(?X) :- <Specification>(?X) . |
-| | |\<Person>(?X) :- <Student>(?X) . |
-| | |\<Organization>(?X) :- <subOrganizationOf>(?X, ?X1) . |
-| | |\<Organization>(?X1) :- <subOrganizationOf>(?X, ?X1) . |
-| | |\<subOrganizationOf>(?X, ?Z) :- <subOrganizationOf>(?X, ?Y) and <subOrganizationOf>(?Y, ?Z) . |
-| | |\<AdministrativeStaff>(?X) :- <SystemsStaff>(?X) . |
-| | |\<Course>(?X1) :- <teacherOf>(?X, ?X1) . |
-| | |\<Faculty>(?X) :- <teacherOf>(?X, ?X1) . |
-| | |\<Person>(?X) :- <TeachingAssistant>(?X) . |
-| | |\<Course>(?X1) :- <teachingAssistantOf>(?X, ?X1) . |
-| | |\<TeachingAssistant>(?X) :- <teachingAssistantOf>(?X, ?X1) . |
-| | |\<Article>(?X) :- <TechnicalReport>(?X) . |
-| | |\<Person>(?X) :- <telephone>(?X, ?X1) . |
-| | |\<Professor>(?X) :- <tenured>(?X, ?X1) . |
-| | |\<Person>(?X) :- <title>(?X, ?X1) . |
-| | |\<Person>(?X) :- <undergraduateDegreeFrom>(?X, ?X1) . |
-| | |\<University>(?X1) :- <undergraduateDegreeFrom>(?X, ?X1) . |
-| | |\<degreeFrom>(?X, ?Y) :- <undergraduateDegreeFrom>(?X, ?Y) . |
-| | |\<Student>(?X) :- <UndergraduateStudent>(?X) . |
-| | |\<Organization>(?X) :- <University>(?X) . |
-| | |\<Publication>(?X) :- <UnofficialPublication>(?X) . |
-| | |\<Professor>(?X) :- <VisitingProfessor>(?X) . |
-| | |\<memberOf>(?X, ?Y) :- <worksFor>(?X, ?Y) . |
+| | |\<advisor>(?X, ?Y) :- \<src_advisor>(?X, ?Y) . |
+| | |\<AssistantProfessor>(?X) :- \<src_AssistantProfessor>(?X) . |
+| | |\<AssociateProfessor>(?X) :- \<src_AssociateProfessor>(?X) . |
+| | |\<Course>(?X) :- \<src_Course>(?X) . |
+| | |\<Department>(?X) :- \<src_Department>(?X) . |
+| | |\<doctoralDegreeFrom>(?X, ?Y) :- \<src_doctoralDegreeFrom>(?X, ?Y) . |
+| | |\<emailAddress>(?X, ?Y) :- \<src_emailAddress>(?X, ?Y) . |
+| | |\<FullProfessor>(?X) :- \<src_FullProfessor>(?X) . |
+| | |\<GraduateCourse>(?X) :- \<src_GraduateCourse>(?X) . |
+| | |\<GraduateStudent>(?X) :- \<src_GraduateStudent>(?X) . |
+| | |\<headOf>(?X, ?Y) :- \<src_headOf>(?X, ?Y) . |
+| | |\<Lecturer>(?X) :- \<src_Lecturer>(?X) . |
+| | |\<mastersDegreeFrom>(?X, ?Y) :- \<src_mastersDegreeFrom>(?X, ?Y) . |
+| | |\<memberOf>(?X, ?Y) :- \<src_memberOf>(?X, ?Y) . |
+| | # |\<name>(?X, ?Y) :- \<src_name>(?X, ?Y) . |
+| | # |\<Publication>(?X) :- \<src_Publication>(?X) . |
+| | |\<publicationAuthor>(?X, ?Y) :- \<src_publicationAuthor>(?X, ?Y) . |
+| | |\<ResearchAssistant>(?X) :- \<src_ResearchAssistant>(?X) . |
+| | |\<ResearchGroup>(?X) :- \<src_ResearchGroup>(?X) . |
+| | # |\<researchInterest>(?X, ?Y) :- \<src_researchInterest>(?X, ?Y) . |
+| | |\<subOrganizationOf>(?X, ?Y) :- \<src_subOrganizationOf>(?X, ?Y) . |
+| | |\<takesCourse>(?X, ?Y) :- \<src_takesCourse>(?X, ?Y) . |
+| | |\<teacherOf>(?X, ?Y) :- \<src_teacherOf>(?X, ?Y) . |
+| | |\<TeachingAssistant>(?X) :- \<src_TeachingAssistant>(?X) . |
+| | |\<teachingAssistantOf>(?X, ?Y) :- \<src_teachingAssistantOf>(?X, ?Y) . |
+| | |\<telephone>(?X, ?Y) :- \<src_telephone>(?X, ?Y) . |
+| | |\<undergraduateDegreeFrom>(?X, ?Y) :- \<src_undergraduateDegreeFrom>(?X, ?Y) . |
+| | |\<UndergraduateStudent>(?X) :- \<src_UndergraduateStudent>(?X) . |
+| | |\<University>(?X) :- \<src_University>(?X) . |
+| | |\<worksFor>(?X, ?Y) :- \<src_worksFor>(?X, ?Y) . |
+| | |\<Employee>(?X) :- \<AdministrativeStaff>(?X) . |
+| | |\<Person>(?X) :- \<advisor>(?X, ?X1) . |
+| | |\<Professor>(?X1) :- \<advisor>(?X, ?X1) . |
+| | |\<Organization>(?X) :- \<affiliatedOrganizationOf>(?X, ?X1) . |
+| | |\<Organization>(?X1) :- \<affiliatedOrganizationOf>(?X, ?X1) . |
+| | |\<Organization>(?X) :- \<affiliateOf>(?X, ?X1) . |
+| | |\<Person>(?X1) :- \<affiliateOf>(?X, ?X1) . |
+| | |\<Person>(?X) :- \<age>(?X, ?X1) . |
+| | # |\<Publication>(?X) :- \<Article>(?X) . |
+| | |\<Professor>(?X) :- \<AssistantProfessor>(?X) . |
+| | |\<Professor>(?X) :- \<AssociateProfessor>(?X) . |
+| | # |\<Publication>(?X) :- \<Book>(?X) . |
+| | |\<Person>(?X) :- \<Chair>(?X) . |
+| | |\<Professor>(?X) :- \<Chair>(?X) . |
+| | |\<AdministrativeStaff>(?X) :- \<ClericalStaff>(?X) . |
+| | |\<Organization>(?X) :- \<College>(?X) . |
+| | |\<Article>(?X) :- \<ConferencePaper>(?X) . |
+| | # |\<Work>(?X) :- \<Course>(?X) . |
+| | |\<Professor>(?X) :- \<Dean>(?X) . |
+| | |\<Person>(?X) :- \<degreeFrom>(?X, ?X1) . |
+| | |\<University>(?X1) :- \<degreeFrom>(?X, ?X1) . |
+| | |\<hasAlumnus>(?X, ?Y) :- \<degreeFrom>(?Y, ?X) . |
+| | |\<Organization>(?X) :- \<Department>(?X) . |
+| | |\<Person>(?X) :- \<Director>(?X) . |
+| | |\<Person>(?X) :- \<doctoralDegreeFrom>(?X, ?X1) . |
+| | |\<University>(?X1) :- \<doctoralDegreeFrom>(?X, ?X1) . |
+| | |\<degreeFrom>(?X, ?Y) :- \<doctoralDegreeFrom>(?X, ?Y) . |
+| | |\<Person>(?X) :- \<emailAddress>(?X, ?X1) . |
+| | |\<Person>(?X) :- \<Employee>(?X) . |
+| | |\<Employee>(?X) :- \<Faculty>(?X) . |
+| | |\<Professor>(?X) :- \<FullProfessor>(?X) . |
+| | |\<Course>(?X) :- \<GraduateCourse>(?X) . |
+| | |\<Person>(?X) :- \<GraduateStudent>(?X) . |
+| | |\<Person>(?X1) :- \<hasAlumnus>(?X, ?X1) . |
+| | |\<University>(?X) :- \<hasAlumnus>(?X, ?X1) . |
+| | |\<degreeFrom>(?X, ?Y) :- \<hasAlumnus>(?Y, ?X) . |
+| | |\<Dean>(?X) :- \<headOf>(?X, ?X1) and \<College>(?X1) . |
+| | |\<worksFor>(?X, ?Y) :- \<headOf>(?X, ?Y) . |
+| | |\<Organization>(?X) :- \<Institute>(?X) . |
+| | |\<Article>(?X) :- \<JournalArticle>(?X) . |
+| | |\<Faculty>(?X) :- \<Lecturer>(?X) . |
+| | |\<Course>(?X1) :- \<listedCourse>(?X, ?X1) . |
+| | |\<Schedule>(?X) :- \<listedCourse>(?X, ?X1) . |
+| | # |\<Publication>(?X) :- \<Manual>(?X) . |
+| | |\<Person>(?X) :- \<mastersDegreeFrom>(?X, ?X1) . |
+| | |\<University>(?X1) :- \<mastersDegreeFrom>(?X, ?X1) . |
+| | |\<degreeFrom>(?X, ?Y) :- \<mastersDegreeFrom>(?X, ?Y) . |
+| | |\<Organization>(?X) :- \<member>(?X, ?X1) . |
+| | |\<Person>(?X1) :- \<member>(?X, ?X1) . |
+| | |\<memberOf>(?X, ?Y) :- \<member>(?Y, ?X) . |
+| | |\<member>(?X, ?Y) :- \<memberOf>(?Y, ?X) . |
+| | |\<Organization>(?X) :- \<orgPublication>(?X, ?X1) . |
+| | # |\<Publication>(?X1) :- \<orgPublication>(?X, ?X1) . |
+| | |\<Chair>(?X) :- \<Person>(?X) and \<headOf>(?X, ?X1) and \<Department>(?X1) . |
+| | |\<Director>(?X) :- \<Person>(?X) and \<headOf>(?X, ?X1) and \<Program>(?X1) . |
+| | |\<Student>(?X) :- \<Person>(?X) and \<takesCourse>(?X, ?X1) and \<Course>(?X1) . |
+| | |\<TeachingAssistant>(?X) :- \<Person>(?X) and \<teachingAssistantOf>(?X, ?X1) and \<Course>(?X1) . |
+| | |\<Employee>(?X) :- \<Person>(?X) and \<worksFor>(?X, ?X1) and \<Organization>(?X1) . |
+| | |\<Faculty>(?X) :- \<PostDoc>(?X) . |
+| | |\<Faculty>(?X) :- \<Professor>(?X) . |
+| | |\<Organization>(?X) :- \<Program>(?X) . |
+| | |\<Person>(?X1) :- \<publicationAuthor>(?X, ?X1) . |
+| | # |\<Publication>(?X) :- \<publicationAuthor>(?X, ?X1) . |
+| | # |\<Publication>(?X) :- \<publicationDate>(?X, ?X1) . |
+| | # |\<Publication>(?X) :- \<publicationResearch>(?X, ?X1) . |
+| | |\<Research>(?X1) :- \<publicationResearch>(?X, ?X1) . |
+| | # |\<Work>(?X) :- \<Research>(?X) . |
+| | |\<Person>(?X) :- \<ResearchAssistant>(?X) . |
+| | |\<Organization>(?X) :- \<ResearchGroup>(?X) . |
+| | |\<Research>(?X1) :- \<researchProject>(?X, ?X1) . |
+| | |\<ResearchGroup>(?X) :- \<researchProject>(?X, ?X1) . |
+| | # |\<Publication>(?X) :- \<Software>(?X) . |
+| | # |\<Publication>(?X1) :- \<softwareDocumentation>(?X, ?X1) . |
+| | |\<Software>(?X) :- \<softwareDocumentation>(?X, ?X1) . |
+| | |\<Software>(?X) :- \<softwareVersion>(?X, ?X1) . |
+| | # |\<Publication>(?X) :- \<Specification>(?X) . |
+| | |\<Person>(?X) :- \<Student>(?X) . |
+| | |\<Organization>(?X) :- \<subOrganizationOf>(?X, ?X1) . |
+| | |\<Organization>(?X1) :- \<subOrganizationOf>(?X, ?X1) . |
+| | |\<subOrganizationOf>(?X, ?Z) :- \<subOrganizationOf>(?X, ?Y) and \<subOrganizationOf>(?Y, ?Z) . |
+| | |\<AdministrativeStaff>(?X) :- \<SystemsStaff>(?X) . |
+| | |\<Course>(?X1) :- \<teacherOf>(?X, ?X1) . |
+| | |\<Faculty>(?X) :- \<teacherOf>(?X, ?X1) . |
+| | |\<Person>(?X) :- \<TeachingAssistant>(?X) . |
+| | |\<Course>(?X1) :- \<teachingAssistantOf>(?X, ?X1) . |
+| | |\<TeachingAssistant>(?X) :- \<teachingAssistantOf>(?X, ?X1) . |
+| | |\<Article>(?X) :- \<TechnicalReport>(?X) . |
+| | |\<Person>(?X) :- \<telephone>(?X, ?X1) . |
+| | |\<Professor>(?X) :- \<tenured>(?X, ?X1) . |
+| | |\<Person>(?X) :- \<title>(?X, ?X1) . |
+| * | |\<Person>(?X) :- \<undergraduateDegreeFrom>(?X, ?X1) . |
+| * | |\<University>(?X1) :- \<undergraduateDegreeFrom>(?X, ?X1) . |
+| * | |\<degreeFrom>(?X, ?Y) :- \<undergraduateDegreeFrom>(?X, ?Y) . |
+| * | |\<Student>(?X) :- \<UndergraduateStudent>(?X) . |
+| * | |\<Organization>(?X) :- \<University>(?X) . |
+| * | # |\<Publication>(?X) :- \<UnofficialPublication>(?X) . |
+| * | |\<Professor>(?X) :- \<VisitingProfessor>(?X) . |
+| * | |\<memberOf>(?X, ?Y) :- \<worksFor>(?X, ?Y) . |
 
-| Data set | EDB size | Reasoning no-* rules from scratch |	add * rules |	delete * rules | Reasoning no-# rules from scratch |	add # rules |	delete # rules |
+| Data set | EDB size | Reason with no-* rules from scratch |	add * rules |	delete * rules | Reason with no-# rules from scratch |	add # rules |	delete # rules |
 |----------|----------|-------------------------------------|---------------|------------------|-----------------------------------|--------------|----------------|
 | LUBM1    | 100543   | 588.9 ms |	216.9 ms | 252.5 ms |603.7 ms	|56.3 ms	|21.5 ms|
 | LUBM10   | 1272575  | 5290.4 ms	| 2347.0 ms |	3089.7 ms |5283.2 ms|	355.3 ms|	20.4 ms|
@@ -252,10 +256,10 @@ ZodiacEdge also supports an extension of RDF Datalog with **AGGREGATION**, **BIN
   * program.edb.print_content()
 * Query ZodiacEdge:
   * resultSet = program.query(<br>
-                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; subject=Term.getTerm("X", "variable"), <br>
-                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; predicate=Term.getTerm("http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "constant"), <br>
-                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; object=Term.getTerm("HasPublicationDepartment", "constant") <br> 
-                  &emsp; &emsp;&emsp;&emsp;&emsp;&emsp; ) <br>
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; subject=Term.getTerm("X", "variable"), \<br>
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; predicate=Term.getTerm("http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "constant"), \<br>
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; object=Term.getTerm("HasPublicationDepartment", "constant") \<br> 
+                  &emsp; &emsp;&emsp;&emsp;&emsp;&emsp; ) \<br>
   * print(resultSet)
 
 ### Data
