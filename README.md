@@ -1,4 +1,4 @@
-##Additional test
+## Additional test
 
 We additionally tested ZodiacEdge with following rule set on LUBM1, LUBM10 and LUBM100 data set. Rules marked with * are randomly picked and rules marked with # are some rules in the end of the topological order of the rule set's HRDG.
 
