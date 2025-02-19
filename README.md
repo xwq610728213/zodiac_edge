@@ -156,14 +156,14 @@ The following 3 rule sets are examples of testing ZodiacEdge. The first example 
 
 ## Rule Set 1
 
-This rule set corresponds to an extract of the real-world Wind farm use case. Due to confidentiality reasons, we can not provide the complete rule set.
+This rule set corresponds to an extract of our smart city motivating use case use case.
 
-r1: hasNeighbour(X, Y) :- hasNeighbour(Y, X) .  
-r2: hasNeighbour(X, Y) :- hasNeighbour(X, Z) and hasNeighbour(Z, Y) and COMP(X, !=, Y) .  
-r3: hasNeighbourAirTemperatureMeasurementNumber(X, Z) :- aggregate( hasNeighbour(X, Y) and hasAirTemperatureMesurement(Y, T)) on X with count(T) as Z .  
-r4: hasMedianAirTemperatureMeasurementNearby(X, Z) :- aggregate( hasNeighbour(X, Y) and hasAirTemperatureMesurement(Y, T)) on X with Med(T) as Z .  
-r5: MoreThan3Neighbours(X) :- hasNeighbourAirTemperatureMeasurementNumber(X, N) and Comp(N, >=, 3) .  
-r6: SensorAnomalyWindTurbine(X) :- hasMedianAirTemperatureMeasurementNearby(X, M) $\wedge$ MoreThan3Neighbours(X) and hasAirTemperatureMesurement(X, T) and bind(abs(T-M) as D) and Comp(D, >, 5) .  
+r1: roadConnection(X, Y) :- roadConnection(Y, X) .  
+r2: roadConnection(X, Y) :- roadConnection(X, Z) and roadConnection(Z, Y) and COMP(X, !=, Y) .  
+r3: roadConnectionTrafficVolumeCount(X, Z) :- aggregate( roadConnection(X, Y) and hasTrafficVolume(Y, T)) on X with count(T) as Z .  
+r4: averageTrafficVolumeNearby(X, Z) :- aggregate( roadConnection(X, Y) and hasTrafficVolume(Y, T)) on X with avg(T) as Z .  
+r5: moreThan3roadConnection(X) :- roadConnectionTrafficVolumeCount(X, N) and Comp(N, >=, 3) .  
+r6: trafficFlowAnomaly(X) :- medianTrafficVolumeNearby(X, M) and moreThan3roadConnection(X) and hasTrafficVolume(X, T), bind(abs(T-M) as D), COMP(D, >, 25).  
 
 ## Rule Set 2
 
