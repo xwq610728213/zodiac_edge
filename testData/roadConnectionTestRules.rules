@@ -1,0 +1,29 @@
+<roadConnection>(X, Y) :- <roadConnection>(Y, X) .
+<roadConnection>(X, Y) :- <roadConnection>(X, Z) and <roadConnection>(Z, Y) .
+
+#<p1>(X, Y) :- <roadConnection>(X, Y) .
+#<p2>(X, Y) :- <p1>(X, Y) .
+#<p3>(X, Y) :- <p2>(X, Y) .
+#<p1>(X, Y) :- <p3>(X, Y) and <p2>(X, Y) .
+
+#<roadConnectionCopy>(X, Y) :- <roadConnection>(X, Y) .
+
+#<roadConnectionCopy2>(X, Y) :- <roadConnectionCopy>(X, Y) .
+#<roadConnection>(X, Y) :- <roadConnectionCopy>(X, Y) .
+
+#<roadConnection>(X, Y) :- <roadConnectionCopy2>(X, Y) .
+
+#<roadConnectionTrafficVolumeMax>(X, Z) :- aggregate( <roadConnection>(X, Y) and <hasTrafficVolume>(Y, T)) on X with max(T) as Z .
+
+#<roadConnectionTrafficVolumeMax1>(X, Y) :- <roadConnectionTrafficVolumeMax>(X, G) and bind(G + 1 as Y) .
+
+#<hasVectorizedRoadConnectionTrafficVolume>(X, Z) :- aggregate( <roadConnection>(X, Y) and <hasTrafficVolume>(Y, T)) on X with vectorize(T) as Z .
+
+#<roadConnectionTrafficVolumeVariance>(X, Y) :- <hasVectorizedRoadConnectionTrafficVolumet>(X, G) and bind(func:bind_variance(G) as Y) .
+
+#<roadConnectionTrafficVolumeMax1Plus1>(X, Y) :- bind(Z+1 as Y) and <roadConnectionTrafficVolumeMax>(X, Z) .
+
+#<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(X, Y) :- <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(X, Z) and <http://www.w3.org/2000/01/rdf-schema#subClassOf>(Z, Y) .
+
+
+
