@@ -163,7 +163,7 @@ r2: roadConnection(X, Y) :- roadConnection(X, Z) and roadConnection(Z, Y) and CO
 r3: roadConnectionTrafficVolumeCount(X, Z) :- aggregate( roadConnection(X, Y) and hasTrafficVolume(Y, T)) on X with count(T) as Z .  
 r4: averageTrafficVolumeNearby(X, Z) :- aggregate( roadConnection(X, Y) and hasTrafficVolume(Y, T)) on X with avg(T) as Z .  
 r5: moreThan3roadConnection(X) :- roadConnectionTrafficVolumeCount(X, N) and Comp(N, >=, 3) .  
-r6: trafficFlowAnomaly(X) :- medianTrafficVolumeNearby(X, M) and moreThan3roadConnection(X) and hasTrafficVolume(X, T), bind(abs(T-M) as D), COMP(D, >, 25).  
+r6: trafficFlowAnomaly(X) :- averageTrafficVolumeNearby(X, M) and moreThan3roadConnection(X) and hasTrafficVolume(X, T), bind(abs(T-M) as D), COMP(D, >, 25).  
 
 ## Rule Set 2
 
