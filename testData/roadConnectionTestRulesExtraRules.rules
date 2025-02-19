@@ -1,0 +1,25 @@
+#<roadConnectionCopy>(X, Y) :- <roadConnectionCopy>(Y, X) .
+#<roadConnection>(X, Y) :- <roadConnection>(Y, X) .
+
+#<roadConnection>(X, Y) :- <roadConnection>(X, Z) and <roadConnection>(Z, Y) .
+<p1>(X, Y) :- <roadConnection>(X, Y) .
+#<p2>(X, Y) :- <p1>(X, Y) .
+#<p3>(X, Y) :- <p2>(X, Y) .
+#<p1>(X, Y) :- <p3>(X, Y) and <p2>(X, Y) .
+
+#<roadConnection>(X, Y) :- <roadConnection>(X, Z) and <roadConnection>(Z, Y) .
+
+#<roadConnectionCopy>(X, Y) :- <roadConnectionCopy>(X, Z) and <roadConnectionCopy>(Z, Y) and COMP(X, !=, Y) .
+#<roadConnection>(X, Y) :- <roadConnection>(X, Z) and <roadConnection>(Z, Y) .
+
+#<roadConnection>(X, Y) :- <p1>(X, Y) .
+
+#<roadConnection>(X, Y) :- <roadConnectionCopy2>(Y, X) .
+
+#<roadConnectionTrafficVolumeCount>(X, Z) :- aggregate( <roadConnection>(X, Y) and <hasTrafficVolume>(Y, T)) on X with count(T) as Z .
+
+#<averageTrafficVolumeNearby>(X, Z) :- aggregate( <roadConnection>(X, Y) and <hasTrafficVolume>(Y, T)) on X with Med(T) as Z .
+
+#<moreThan3roadConnection>(X) :- <roadConnectionTrafficVolumeCount>(X, N) and Comp(N, >=, 3) .
+
+#<trafficFlowAnomaly>(X) :- <averageTrafficVolumeNearby>(X, M) and <moreThan3roadConnections>(X) and <hasTrafficVolume>(X, T) and bind(abs(T-M) as D) and Comp(D, >, 5) .

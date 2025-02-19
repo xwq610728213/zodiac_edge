@@ -1,0 +1,18 @@
+PREFIX test: <https://rdfox.com/default-base-iri/>
+
+[?x, test:roadConnection, ?y] :- [?y, test:roadConnection, ?x] .
+
+[?x, test:roadConnection, ?z] :- [?x, test:roadConnection, ?y], [?y, test:roadConnection, ?z] .
+
+[?x, test:p1, ?y] :- [?x, test:roadConnection, ?y] .
+
+[?x, test:p2, ?y] :- [?x, test:p1, ?y] .
+
+[?x, test:p1, ?y] :- [?x, test:p2, ?z], [?z, test:p1, ?y] .
+
+[?x, test:p3, ?y] :- [?x, test:p0, ?y] .
+
+[?x, test:p4, ?y] :- [?x, test:p3, ?y] .
+
+[?x, test:p5, ?y] :- [?x, test:p2, ?y], not [?x, test:p4, ?y] .
+

@@ -1,0 +1,3 @@
+PREFIX test: <https://rdfox.com/default-base-iri/>
+
+[?x, test:p6, ?y] :- [?x, test:roadConnection, ?z], [?z, test:p2, ?y], not [?z, test:p5, ?y] .
