@@ -1,50 +1,50 @@
-<hasNeighbour>(X, Y) :- <hasNeighbour>(Y, X) .
+<roadConnection>(X, Y) :- <roadConnection>(Y, X) .
 
-<hasNeighbour>(X, Y) :- <hasNeighbour>(X, Z) and <hasNeighbour>(Z, Y) .
+<roadConnection>(X, Y) :- <roadConnection>(X, Z) and <roadConnection>(Z, Y) .
 
-<p1>(X, Y) :- <hasNeighbour>(X, Y) and <SensorType1>(X) and <SensorType2>(Y) .
+<p1>(X, Y) :- <roadConnection>(X, Y) and <RoadClass1>(X) and <RoadClass2>(Y) .
 
 <p1>(X, Y) :- <p1>(Y, X) .
 
 <p1>(X, Y) :- <p1>(X, Z) and <p1>(Z, Y) .
 
-<p2>(X, Y) :- <hasNeighbour>(X, Y) and <SensorType2>(X) and <SensorType3>(Y) .
+<p2>(X, Y) :- <roadConnection>(X, Y) and <RoadClass2>(X) and <RoadClass3>(Y) .
 
 <p2>(X, Y) :- <p2>(Y, X) .
 
 <p2>(X, Y) :- <p2>(X, Z) and <p2>(Z, Y) .
 
-<p3>(X, Y) :- <hasNeighbour>(X, Y) and <SensorType3>(X) and <SensorType4>(Y) .
+<p3>(X, Y) :- <roadConnection>(X, Y) and <RoadClass3>(X) and <RoadClass4>(Y) .
 
 <p3>(X, Y) :- <p3>(Y, X) .
 
 <p3>(X, Y) :- <p3>(X, Z) and <p3>(Z, Y) .
 
-<p4>(X, Y) :- <hasNeighbour>(X, Y) and <SensorType2>(X) and <SensorType1>(Y) .
+<p4>(X, Y) :- <roadConnection>(X, Y) and <RoadClass2>(X) and <RoadClass1>(Y) .
 
 <p4>(X, Y) :- <p4>(Y, X) .
 
 <p4>(X, Y) :- <p4>(X, Z) and <p4>(Z, Y) .
 
-<p5>(X, Y) :- <hasNeighbour>(X, Y) and <SensorType3>(X) and <SensorType2>(Y) .
+<p5>(X, Y) :- <roadConnection>(X, Y) and <RoadClass3>(X) and <RoadClass2>(Y) .
 
 <p5>(X, Y) :- <p5>(Y, X) .
 
 <p5>(X, Y) :- <p5>(X, Z) and <p5>(Z, Y) .
 
-<p6>(X, Y) :- <hasNeighbour>(X, Y) and <SensorType4>(X) and <SensorType3>(Y) .
+<p6>(X, Y) :- <roadConnection>(X, Y) and <RoadClass4>(X) and <RoadClass3>(Y) .
 
 <p6>(X, Y) :- <p6>(Y, X) .
 
 <p6>(X, Y) :- <p6>(X, Z) and <p6>(Z, Y) .
 
-<p7>(X, Y) :- <hasNeighbour>(X, Y) and <SensorType1>(X) and <SensorType3>(Y) .
+<p7>(X, Y) :- <roadConnection>(X, Y) and <RoadClass1>(X) and <RoadClass3>(Y) .
 
 <p7>(X, Y) :- <p7>(Y, X) .
 
 <p7>(X, Y) :- <p7>(X, Z) and <p7>(Z, Y) .
 
-<p8>(X, Y) :- <hasNeighbour>(X, Y) and <SensorType2>(X) and <SensorType4>(Y) .
+<p8>(X, Y) :- <roadConnection>(X, Y) and <RoadClass2>(X) and <RoadClass4>(Y) .
 
 <p8>(X, Y) :- <p8>(Y, X) .
 

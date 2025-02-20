@@ -1,9 +1,0 @@
-
-<hasEnergyProductionApartFromSolarFarm>(X, E) :- <hasEnergyProduction>(X, E) and <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(X, <EnergyFarm>) and not <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(X, <SolarFarm>) .
-
-
-<hasEnergyProductionApartFromSolarFarm>(X, E) :- aggregate(<hasSubstation>(X, S) and <hasEnergyProductionApartFromSolarFarm>(S, SE)) on X with sum(SE) as E .
-
-
-<hasWindSpeed>(X, E) :- aggregate(<hasSubstation>(X, S) and <hasWindSpeed>(S, SE)) on X with AVG(SE) as E .
-

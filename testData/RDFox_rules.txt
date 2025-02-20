@@ -1,7 +1,0 @@
-PREFIX test: <https://rdfox.com/default-base-iri/>
-
-[?x, test:hasNeighbour, ?y] :- [?y, test:hasNeighbour, ?x] .
-
-[?x, test:hasNeighbour, ?z] :- [?x, test:hasNeighbour, ?y], [?y, test:hasNeighbour, ?z] .
-
-

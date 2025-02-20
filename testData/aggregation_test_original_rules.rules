@@ -1,3 +1,3 @@
-<hasNeighbour>(X, Y) :- <hasNeighbour>(Y, X) .
+<roadConnection>(X, Y) :- <roadConnection>(Y, X) .
 
-<hasNeighbour>(X, Y) :- <hasNeighbour>(X, Z) and <hasNeighbour>(Z, Y) .
+<roadConnection>(X, Y) :- <roadConnection>(X, Z) and <roadConnection>(Z, Y) .

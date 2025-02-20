@@ -1,53 +1,53 @@
 PREFIX test: <https://rdfox.com/default-base-iri/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-[?x, test:hasNeighbour, ?y] :- [?y, test:hasNeighbour, ?x] .
+[?x, test:roadConnection, ?y] :- [?y, test:roadConnection, ?x] .
 
-[?x, test:hasNeighbour, ?z] :- [?x, test:hasNeighbour, ?y], [?y, test:hasNeighbour, ?z] .
+[?x, test:roadConnection, ?z] :- [?x, test:roadConnection, ?y], [?y, test:roadConnection, ?z] .
 
-[?x, test:p1, ?y] :- [?x, test:hasNeighbour, ?y], [?x, rdf:type, test:SensorType1], [?y, rdf:type, test:SensorType2] .
+[?x, test:p1, ?y] :- [?x, test:roadConnection, ?y], [?x, rdf:type, test:RoadClass1], [?y, rdf:type, test:RoadClass2] .
 
 [?x, test:p1, ?y] :- [?y, test:p1, ?x] .
 
 [?x, test:p1, ?z] :- [?x, test:p1, ?y], [?y, test:p1, ?z] .
 
-[?x, test:p2, ?y] :- [?x, test:hasNeighbour, ?y], [?x, rdf:type, test:SensorType2], [?y, rdf:type, test:SensorType3] .
+[?x, test:p2, ?y] :- [?x, test:roadConnection, ?y], [?x, rdf:type, test:RoadClass2], [?y, rdf:type, test:RoadClass3] .
 
 [?x, test:p2, ?y] :- [?y, test:p2, ?x] .
 
 [?x, test:p2, ?z] :- [?x, test:p2, ?y], [?y, test:p2, ?z] .
 
-[?x, test:p3, ?y] :- [?x, test:hasNeighbour, ?y], [?x, rdf:type, test:SensorType3], [?y, rdf:type, test:SensorType4] .
+[?x, test:p3, ?y] :- [?x, test:roadConnection, ?y], [?x, rdf:type, test:RoadClass3], [?y, rdf:type, test:RoadClass4] .
 
 [?x, test:p3, ?y] :- [?y, test:p3, ?x] .
 
 [?x, test:p3, ?z] :- [?x, test:p3, ?y], [?y, test:p3, ?z] .
 
-[?x, test:p4, ?y] :- [?x, test:hasNeighbour, ?y], [?x, rdf:type, test:SensorType2], [?y, rdf:type, test:SensorType1] .
+[?x, test:p4, ?y] :- [?x, test:roadConnection, ?y], [?x, rdf:type, test:RoadClass2], [?y, rdf:type, test:RoadClass1] .
 
 [?x, test:p4, ?y] :- [?y, test:p4, ?x] .
 
 [?x, test:p4, ?z] :- [?x, test:p4, ?y], [?y, test:p4, ?z] .
 
-[?x, test:p5, ?y] :- [?x, test:hasNeighbour, ?y], [?x, rdf:type, test:SensorType3], [?y, rdf:type, test:SensorType2] .
+[?x, test:p5, ?y] :- [?x, test:roadConnection, ?y], [?x, rdf:type, test:RoadClass3], [?y, rdf:type, test:RoadClass2] .
 
 [?x, test:p5, ?y] :- [?y, test:p5, ?x] .
 
 [?x, test:p5, ?z] :- [?x, test:p5, ?y], [?y, test:p5, ?z] .
 
-[?x, test:p6, ?y] :- [?x, test:hasNeighbour, ?y], [?x, rdf:type, test:SensorType4], [?y, rdf:type, test:SensorType3] .
+[?x, test:p6, ?y] :- [?x, test:roadConnection, ?y], [?x, rdf:type, test:RoadClass4], [?y, rdf:type, test:RoadClass3] .
 
 [?x, test:p6, ?y] :- [?y, test:p6, ?x] .
 
 [?x, test:p6, ?z] :- [?x, test:p6, ?y], [?y, test:p6, ?z] .
 
-[?x, test:p7, ?y] :- [?x, test:hasNeighbour, ?y], [?x, rdf:type, test:SensorType1], [?y, rdf:type, test:SensorType3] .
+[?x, test:p7, ?y] :- [?x, test:roadConnection, ?y], [?x, rdf:type, test:RoadClass1], [?y, rdf:type, test:RoadClass3] .
 
 [?x, test:p7, ?y] :- [?y, test:p7, ?x] .
 
 [?x, test:p7, ?z] :- [?x, test:p7, ?y], [?y, test:p7, ?z] .
 
-[?x, test:p8, ?y] :- [?x, test:hasNeighbour, ?y], [?x, rdf:type, test:SensorType2], [?y, rdf:type, test:SensorType4] .
+[?x, test:p8, ?y] :- [?x, test:roadConnection, ?y], [?x, rdf:type, test:RoadClass2], [?y, rdf:type, test:RoadClass4] .
 
 [?x, test:p8, ?y] :- [?y, test:p8, ?x] .
 

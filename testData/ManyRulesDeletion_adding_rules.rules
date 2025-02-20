@@ -1,2 +1,2 @@
 
-<p9>(X, Y) :- <hasNeighbour>(X, Y) and <SensorType4>(X) and <SensorType2>(Y) .
+<p9>(X, Y) :- <roadConnection>(X, Y) and <RoadClass4>(X) and <RoadClass2>(Y) .
