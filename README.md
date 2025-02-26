@@ -1,3 +1,5 @@
+## Proofs of lemmas
+[link here](./proofsZodiacEdge.pdf)
 ## Additional test
 
 Following the reviewers' request to evaluate ZodiacEdge on larger datasets, we additionally tested our system with the LUBM benchmark. That is, we are evaluating it over a set of 128 Datalog rules and on there different fact data sets, namely LUBM1, LUBM10 and LUBM100 data set. Our evaluation considers reasoning from scratch as well as incremental processing for rule sets insertion and deletion. Rules marked with * are randomly picked and rules marked with # are some rules in the end of the topological order of the rule set's HRDG.
